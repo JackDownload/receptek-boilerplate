@@ -39,6 +39,48 @@ collections:
               pattern: ['^[a-z]{2}([-])?([A-Za-z]{2})?$', 'Must match "xx" or "xx-XX" syntax (ex. "en" or "sv-SE")'],
             }
           # - { label: Site Email, name: siteemail, widget: string, required: false }
+    - name: "recipes"
+    label: "Receptek"
+    folder: "content/recipes"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Cím", name: "title", widget: "string" }
+      - { label: "Kategória", name: "category", widget: "relation", collection: "categories", search_fields: ["title"] }
+      - { label: "Tagok", name: "tags", widget: "relation", collection: "tags", search_fields: ["title"] }
+      - { label: "Leírás", name: "description", widget: "text" }
+      - { label: "Hozzávalók", name: "ingredients", widget: "relation", collection: "ingredients", search_fields: ["name"], value_field: "name", display_fields: "name" }
+      - { label: "Fő kép", name: "mainImage", widget: "image" }
+      - { label: "Galéria", name: "gallery", widget: "list", fields: [{ label: "Kép", name: "image", widget: "image" }] }
+
+  - name: "categories"
+    label: "Kategóriák"
+    folder: "content/categories"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Cím", name: "title", widget: "string" }
+      - { label: "Leírás", name: "description", widget: "text" }
+
+  - name: "tags"
+    label: "Tagek"
+    folder: "content/tags"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Cím", name: "title", widget: "string" }
+
+  - name: "ingredients"
+    label: "Hozzávalók"
+    folder: "content/ingredients"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Név", name: "name", widget: "string" }
+      - { label: "Fő kép", name: "mainImage", widget: "image" }
+      - { label: "Mértékegység", name: "unit", widget: "select", options: ["kanál", "db", "g", "kg"] }
+      - { label: "Mennyiség", name: "quantity", widget: "number" }
+      
   - name: 'blog'
     label: 'Blog'
     folder: 'content/blog'
