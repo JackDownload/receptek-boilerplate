@@ -96,7 +96,14 @@ collections:
       - { label: "Fő kép", name: "mainImage", widget: "image" }
       - { label: "Galéria", name: "gallery", widget: "list", fields: [{ label: "Kép", name: "image", widget: "image" }] }
 
-  - name: "categories"
+- name: "tags"
+    label: "Tagek"
+    folder: "content/tags"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Cím", name: "title", widget: "string" }
+- name: "categories"
     label: "Kategóriák"
     folder: "content/categories"
     create: true
@@ -105,15 +112,7 @@ collections:
       - { label: "Cím", name: "title", widget: "string" }
       - { label: "Leírás", name: "description", widget: "text" }
 
-  - name: "tags"
-    label: "Tagek"
-    folder: "content/tags"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Cím", name: "title", widget: "string" }
-
-  - name: "ingredients"
+- name: "ingredients"
     label: "Hozzávalók"
     folder: "content/ingredients"
     create: true
