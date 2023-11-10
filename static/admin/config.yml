@@ -76,25 +76,6 @@ collections:
           summary: '{{fields.image}}',
           field: { label: 'Image', name: 'image', widget: 'image' },
         }
-  - name: 'recipes'
-    label: 'Receptek'
-    folder: 'content/recipes'
-    create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    fields:
-      - { label: 'Cím', name: 'title', widget: 'string' }
-      - { label: 'Tagok', name: 'tags', widget: 'relation', collection: 'tags', search_fields: ['title'] }
-      - { label: 'Leírás', name: 'description', widget: 'text' }
-      - { label: 'Hozzávalók', name: 'ingredients', widget: 'relation', collection: 'ingredients', search_fields: ['name'], value_field: 'name', display_fields: 'name' }
-      - { label: 'Fő kép', name: 'mainImage', widget: 'image' }
-      - { label: 'Galéria', name: 'gallery', widget: 'list', fields: [{ label: 'Kép', name: 'image', widget: 'image' }] }
-  - name: 'tags'
-    label: 'Tagek'
-    folder: 'content/tags'
-    create: true
-    slug: '{{slug}}'
-    fields:
-      - { label: 'Cím', name: 'title', widget: 'string' }
   - name: 'ingredients'
     label: 'Hozzávalók'
     folder: 'content/ingredients'
